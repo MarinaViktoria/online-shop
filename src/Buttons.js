@@ -1,6 +1,5 @@
-function Buttons({anyPropNameTwo}) {
+function Buttons({data, setClothes}) {
     const filteredClothes = searchTerm => {
-        
         const filteredResult = [];
         data.forEach(item => {
             item.searchTerm.forEach(term => {
@@ -11,16 +10,15 @@ function Buttons({anyPropNameTwo}) {
             })
         })
     }
-
     return(
         <div className="cont">
             <button className="change" onClick={() => setClothes(data)}>All</button>
-            <button className="change" onClick={() => anyPropNameTwo("dress")}>Top Seller</button>
-            <button className="change" onClick={() => anyPropNameTwo("dress")}>Dresses</button>
-            <button className="change" onClick={() => anyPropNameTwo("pants")}>Pants</button>
-            <button className="change" onClick={() => anyPropNameTwo("skirt")}>Skirts</button>
-            <button className="change" onClick={() => anyPropNameTwo("shoes")}>Shoes</button>
-            <button className="change" onClick={() => anyPropNameTwo("shirt")}>Shirts</button>
+            <button className="change" onClick={() => filteredClothes("dress")}>Top Seller</button>
+            <button className="change" onClick={() => filteredClothes("dress")}>Dresses</button>
+            <button className="change" onClick={() => filteredClothes("pants")}>Pants</button>
+            <button className="change" onClick={() => filteredClothes("skirt")}>Skirts</button>
+            <button className="change" onClick={() => filteredClothes("shoes")}>Shoes</button>
+            <button className="change" onClick={() => filteredClothes("shirt")}>Shirts</button>
         </div>
     )
 }
