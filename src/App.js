@@ -6,14 +6,19 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-//import { useState } from 'react';
-//import { data } from './data';
-//import Clothes from './Clothes';
-//import Buttons from './Buttons';
+import { useState, useEffect } from 'react';
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
+import LoaderPage from './LoaderPage';
+
 function App() {
+  const [stateLoader, setStateLoader] = useState(true);
+  useEffect (() => {
+    const timer = setTimeout(() => setStateLoader(false), 3000);
+    return () => clearTimeout(timer)  
+  }, [])
+
   return (
   <Router>
     <nav>
